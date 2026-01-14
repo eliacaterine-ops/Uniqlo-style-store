@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uniqlo Style Store</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #ffffff;
+      color: #000;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #eee;
+    }
+
+    header h1 {
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #000;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #666;
+    }
+
+    .products {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .product {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .product p {
+      font-size: 13px;
+      color: #666;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #eee;
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>UNIQLO</h1>
+  <nav>
+    <a href="#">MEN</a>
+    <a href="#">WOMEN</a>
+    <a href="#">KIDS</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>LifeWear Collection 2026</h2>
+  <p>Simple. Better. Everyday Wear.</p>
+</section>
+
+<section class="products" id="productList"></section>
+
+<footer>
+  © 2026 Uniqlo Style Store
+</footer>
+
+<!-- JavaScript -->
+<script>
+  const products = [
+    { name: 'AIRism Cotton T-Shirt', price: 'Rp199.000' },
+    { name: 'Oversized U Crew Neck', price: 'Rp249.000' },
+    { name: 'EZY Ankle Pants', price: 'Rp399.000' },
+    { name: 'Ultra Light Down Jacket', price: 'Rp899.000' },
+    { name: 'Dry Sweat Hoodie', price: 'Rp499.000' },
+    { name: 'Supima Cotton Shirt', price: 'Rp299.000' },
+    { name: 'Relaxed Fit Jeans', price: 'Rp599.000' },
+    { name: 'Heattech Innerwear', price: 'Rp199.000' }
+  ];
+
+  const list = document.getElementById('productList');
+
+  products.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'product';
+    div.innerHTML = `
+      <img src="https://via.placeholder.com/400x520" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>${p.price}</p>
+    `;
+    list.appendChild(div);
+  });
+</script>
+
+</body>
+</html>
